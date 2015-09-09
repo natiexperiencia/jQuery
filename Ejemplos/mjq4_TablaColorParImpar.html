@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jq1</title>
+        <meta charset="utf-8"/>
+        <style>
+            td{
+                width: 500px;
+                text-align: center;
+                display: block;
+            }
+            table{
+             margin:auto;   
+            }
+            body{
+             text-align: center;  
+            }
+        </style>
+        <script src="./lib/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            
+
+
+            $(document).ready(function() {
+
+            var contadorpar=0;
+            var contadorimpar=0;
+
+              $("#par").click(function() {
+                if (contadorpar % 2){
+                        $('td:odd').css('background-color','#ffffff');
+                      }
+                      else
+                      {
+                        $('td:odd').css('background-color','#cccccc');   
+                      }
+                      contadorpar++;
+              });// par
+
+              $("#impar").click(function() {
+                if (contadorimpar % 2){
+                        $('td:even').css('background-color','#ffffff');
+                      }
+                      else
+                      {
+                        $('td:even').css('background-color','#cccccc');   
+                      }
+                      contadorimpar++;
+              });// impar
+
+            });// ready                 
+        </script>
+    </head>
+   <body>
+        <table border='1'>
+            <tr>
+                <td>Producto 1</td>
+            </tr>
+             <tr>
+                <td>Producto 2</td>
+            </tr>
+             <tr>
+                <td>Producto 3</td>
+            </tr>
+             <tr>
+                <td>Producto 4</td>
+            </tr>
+             <tr>
+                <td>Producto 5</td>
+            </tr>
+             <tr>
+                <td>Producto 6</td>
+            </tr>
+             <tr>
+                <td>Producto 7</td>
+            </tr>
+             <tr>
+                <td>Producto 8</td>
+            </tr>
+             <tr>
+                <td>Producto 9</td>
+            </tr>
+            <tr>
+                <td>Producto 10</td>
+            </tr>
+       </table>
+       <br/>
+       <input id="par" type="button" value="par"/><input id="impar" type="button" value="impar"/>
+    </body>
+</html>

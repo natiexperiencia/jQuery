@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jq1</title>
+        <meta charset="utf-8"/>
+        <style>
+            img{
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+        <script src="./lib/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(
+              function(){  
+                 $('img').click(
+                   function(){
+                     $(this).attr('src','./images/aplus2.jpg');   
+                   }
+                 );
+              }
+            );
+            
+        </script>
+    </head>
+    <body>
+        <img src="./images/aplus.jpg"/>
+    </body>
+</html>

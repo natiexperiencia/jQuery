@@ -1,0 +1,237 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Catálogo</title>
+	<style type="text/css">
+		@font-face{
+			font-family:fuente;
+			src:url("fonts/myfont.ttf");
+		}
+		body{
+			background-image:url("images/fondo.jpg");
+		}
+		header{
+			width:100%;
+			height:150px;
+			background-color:#111111;
+		}
+		#logo{
+			background-size:100px 100px;
+			width:100px;
+			height:100px;
+			background-image:url("images/zubiri.png");
+			float:left;
+			margin-top:25px;
+			margin-left:25px;
+		}
+		#titulo{
+			color:white;
+			font-family:fuente;
+			font-size:45pt;
+			margin-left:370px;
+			padding-top:50px;
+		}
+		ul{
+			list-style:none;
+			display:inline;
+			float:left;
+			margin-left:150px;
+			margin-bottom:40px;
+		}
+		ul li{
+			color:black;
+			font-family:fuente;
+			padding:10px;
+			width:100px;
+			cursor: pointer;
+		}
+		ol{
+			display:none;
+			list-style:none;
+			cursor:pointer;
+
+		}
+		ol li{
+			background-color:grey;
+			margin-left:-44px;
+			padding-top:15px;
+			padding-bottom:15px;
+			padding-left:10px;
+			padding-right:10px;
+		}
+		ol li:hover{
+			background-color:white;
+		}
+		nav{
+			background-color:grey; 
+			height:50px;
+		}
+		#foto{
+			background-repeat: no-repeat;
+			background-size:400px 400px;
+			width:400px;
+			height:400px;
+			margin:auto;
+			margin-top:15px;
+		}
+		footer{
+			background-color: grey;
+		}
+		footer p{
+			padding-top:15px;
+			padding-bottom:15px;
+		}
+	</style>
+	<!-- Librería jQuery -->
+	<script src="lib/jquery-1.11.2.min.js"></script>
+
+	<script type="text/javascript">
+	//denegar seleccionar texto
+		function disableselect(e) {
+			return false
+		}
+		function reEnable () {
+			return true
+		}
+		document.onselectstart=new Function("return false")
+		if (window.sidebar) {
+			document.onmousedown=disableselect
+			document.onclick=reEnable
+		};
+
+	//Principio jQuery
+		$(document).ready(function() {
+			var lID;
+			//Menu y submenu
+			$("#menu1 li").click(function() {
+				$("#submenu1").fadeToggle('slow');
+				$("#submenu2").fadeOut('slow');
+				$("#submenu3").fadeOut('slow');
+				$("#submenu4").fadeOut('slow');
+			});
+			$("#submenu1 li").click(function() {
+				$("#submenu1").fadeOut('slow');
+			});
+			$("#menu2 li").click(function() {
+				$("#submenu2").fadeToggle('slow');
+				$("#submenu1").fadeOut('slow');
+				$("#submenu3").fadeOut('slow');
+				$("#submenu4").fadeOut('slow');
+			});
+			$("#submenu2 li").click(function() {
+				$("#submenu2").fadeOut('slow');
+			});
+			$("#menu3 li").click(function() {
+				$("#submenu3").fadeToggle('slow');
+				$("#submenu2").fadeOut('slow');
+				$("#submenu1").fadeOut('slow');
+				$("#submenu4").fadeOut('slow');
+			});
+			$("#submenu3 li").click(function() {
+				$("#submenu3").fadeOut('slow');
+			});
+			$("#menu4").click(function() {
+				$("#submenu4").fadeToggle('slow');
+				$("#submenu1").fadeOut('slow');
+				$("#submenu2").fadeOut('slow');
+				$("#submenu3").fadeOut('slow');
+
+			});// acaba menu
+			
+			//Al clicar en cualquier línea de submenú, pone la foto correspondiente
+			$("ol li").click(function() {
+				lID = $(this).attr("id");
+				//Condición para cambiar el width si es una tablet y el height si es un juego
+				if(lID == "tablet1" || lID == "tablet2" || lID == "tablet3") {
+					$("#foto").css({
+						height:'400px',
+						width: '600px',
+						backgroundSize: '600px 400px'
+					});
+		 	}else if(lID == "juego1" || lID == "juego2" || lID == "juego3"){
+		 		$("#foto").css({
+		 				width:'400px',
+						height: '500px',
+						backgroundSize: '400px 500px'
+					});
+		 	}else{
+		 		$("#foto").css({
+						height: '400px',
+						width: '400px',
+						backgroundSize: '400px 400px'
+					});
+		 	}
+		 	// fin del if tablet e if juego
+				lID = "images/productImages/"+lID+".jpg";
+				$("#foto").css("backgroundImage", "url('"+lID+"')");
+				$("#foto").css({
+					border: '3px solid black',
+					borderRadius: '15px',
+					boxShadow: '5px 5px 10px black'
+				});
+
+			});
+
+			//Enlaces fabricantes
+			$("#msi").click(function(event) {
+				window.location.href = "http://es.msi.com/";
+			});
+			$("#bq").click(function(event) {
+				window.location.href = "http://www.bq.com/es/";
+			});
+			$("#ubisoft").click(function(event) {
+				window.location.href = "https://www.ubisoft.com/es-ES/";
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<div id="logo">
+		</div>
+		<h1 id="titulo">Cátalogo de productos</h1>
+	</header>
+	<nav>
+		<ul id="menu1">
+			<li>Ordenadores</li>
+			<ol id="submenu1">
+				<li id="ordenador1">Ordenador1</li>
+				<li id="ordenador2">Ordenador2</li>
+				<li id="ordenador3">Ordenador3</li>
+			</ol>
+		</ul>
+		<ul id="menu2">
+			<li>Tablets</li>
+			<ol id="submenu2">
+				<li id="tablet1">Tablet1</li>
+				<li id="tablet2">Tablet2</li>
+				<li id="tablet3">Tablet3</li>
+			</ol>
+		</ul>
+		<ul id="menu3">
+			<li>Juegos</li>
+			<ol id="submenu3">
+				<li id="juego1">Call of Duty</li>
+				<li id="juego2">Dishonored</li>
+				<li id="juego3">Deadpool</li>
+			</ol>
+		</ul>
+		<ul id="menu4">
+			<li>Fabricantes</li>
+			<ol id="submenu4">
+				<li id="msi">MSI</li>
+				<li id="bq">BQ</li>
+				<li id="ubisoft">Ubisoft</li>
+			</ol>
+		</ul>
+	</nav>
+	<div id="cuerpo">
+		<div id="foto">
+		</div>
+	</div>
+	<footer>
+		<p>Iker Oñatibia &copy; -- 2015</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,192 @@
+@font-face{
+	font-family:laMia;
+	src:url("../fuentes/DJB Constance Beauregard.ttf");
+}
+body{
+	font-family: laMia;
+	background-color: lightgreen;
+}
+#contenedor{
+	width: 1024px;
+	height: 150px;
+	margin: auto;
+	background-color: darkgrey;
+	border: 1px solid black;
+	min-height:1100px;
+}
+header{
+	width: 1024px;
+	height: 150px;
+	background-size: 1024px 150px;
+	background-image: url("../imagenes/bannercine.jpg");
+	text-align: center;
+}
+h1{
+	color:white;
+	font-size:36pt;
+	margin-left:-90px;
+	margin-top:0px;
+	text-shadow:10px 5px black;
+	float:left;
+	margin-left:250px;
+}
+#logo{
+	background-size:100px 100px;
+	width: 100px;
+	height: 100px;
+	background-image:url('../imagenes/zubiri.png');
+	border-radius:10px;
+	border: 1px solid black;
+	float: right;
+	margin-top:25px;
+	margin-right:25px;
+}
+nav{
+	font-family: 'Arial';
+	color:white;
+	font-weight: bold;
+	max-height:47px;
+}
+li{
+	list-style: none;
+	width: 180px;
+	height:25px;
+	padding:10px;
+	margin-top:-15px;
+	margin-left:-40px;
+	margin-bottom:15px;
+	background-color:darkgrey;
+	opacity: 1;
+}
+li:hover{
+	background-color: grey;	<h3 id="subTitulo">Película seleccionada</h3>
+	font-style: italic;
+	cursor: pointer;
+}
+ul {
+	list-style: none;
+	display: inline-block;
+	margin-right:40px;
+}
+ol {
+	display: none;
+    padding: 0px;
+    background-color:darkgrey;
+    opacity:1;
+}
+
+#menu{
+	float:left;
+	margin-right:40px;
+}
+#peliculaSeleccionada, #galeria, #cuestionario{
+	border:1px solid black;
+	background-color:lightblue;
+	min-height:270px;
+}
+#imagenPeliculaSeleccionada{
+	width:150px;
+	height: 150px;
+	background-size:150px 150px;
+	background-image:url('../imagenes/goodpeople.png');
+	margin-left:25px;
+	float: left;
+	margin-right: 30px;
+}
+#subTitulo{
+	margin-left:25px;
+}
+#etiqueta1{
+	margin-left:50px;
+	margin-bottom:10px;
+	float: left;
+	margin-top:-20px;
+}
+#etiqueta2{
+	float: left;
+	margin-top:40px;
+	margin-left:-370px;
+
+}
+#director{
+	float: left;
+	margin-left:20px;
+	margin-top:-20px;
+}
+#genero{
+	float: left;
+	margin-top:40px;
+	margin-left:-230px;
+}
+#peli1{
+	background-size:75px 75px;
+	width: 75px;
+	height: 75px;
+	background-image: url('../imagenes/goodpeople.png');
+}
+#peli2{
+	background-size:75px 75px;
+	width: 75px;
+	height: 75px;
+	background-image: url('../imagenes/hombresmujeres.png');
+	opacity:0.5;
+}
+#peli3{
+	background-size:75px 75px;
+	width: 75px;
+	height: 75px;
+	background-image: url('../imagenes/magia.png');
+	opacity:0.5;
+}
+#peli4{
+	background-size:75px 75px;
+	width: 75px;
+	height: 75px;
+	background-image: url('../imagenes/mortadelofilemon.png');
+	opacity:0.5;
+}
+h4{
+	color:white;
+	font-family:'Arial';
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:10px;
+}
+#peli1,#peli2,#peli3,#peli4{
+	float: left;
+	margin-left:40px;
+}
+#anterior{
+	margin-left:40px;
+	opacity:0;
+}
+#siguiente,#anterior{
+	width:100px;
+	height:40px;
+	background-color: grey;
+}
+footer{
+	text-align: center;
+}
+footer p{
+	margin: 0px;
+}
+label{
+	margin: 0px;
+	font-size:12pt;
+	font-family: 'Arial';
+}
+h5{
+	font-family: 'Arial';
+	font-weight: bold;
+	margin-left: 15px;
+	margin-bottom:0px;
+}
+input{
+	margin-left: 15px;
+}
+#puntuacion{
+	margin-left:150px;
+	margin-top: -32px;
+}
+

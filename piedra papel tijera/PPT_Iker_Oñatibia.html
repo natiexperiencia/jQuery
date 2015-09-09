@@ -1,0 +1,176 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Piedra Papel Tijera</title>
+
+	<style type="text/css">
+		@font-face{
+			font-family:laMia;
+			src:url('RECURSOS/fonts/myfont.ttf');
+		}
+		body{
+			font-family:laMia;
+			background-image:url("RECURSOS/images/fondo.jpg");
+		}
+		header{
+			margin-top:-8px;
+			margin-left:-8px;
+			margin-right:-8px; 
+			height:120px;
+			background-color:#ff9922;
+			margin-bottom:50px;
+		}
+		#logo{
+			margin-top:10px;
+			margin-left:10px;
+			width:100px;
+			height:100px;
+			float:left;
+		}
+		#titulo{
+			font-size:45pt;
+			margin-left:200px;
+			float:left;
+			color:white;
+
+			margin-top:25px;
+		}
+		table{
+			clear:left;
+			margin-bottom:100px;
+			text-align: center;
+		}
+		.posicion{
+			width:200px;
+			height:250px;
+			background-size:200px 250px;
+		}
+
+		footer{
+			height:50px;
+			background-color:#ff9922;
+			margin-right:-8px;
+			margin-left:-8px;
+		}
+		#autor{
+			padding-top:10px;
+			margin-left:50px;
+		}
+		.muestra{
+			background-size:200px 100px;
+			width:200px;
+			height:100px;
+		}
+		#empate {
+			margin-top:-50px;
+			text-align:center;
+		}
+	</style>
+
+	<!-- Librería jQuery -->
+	<script src="lib/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+	
+		jQuery(document).ready(function() {
+			var numero;
+			var cuentaEmpate = 0;
+			var cuentaJugador = 0;
+			var cuentaOrdenador = 0;
+
+//Jugar con piedra
+			$('#piedra').click(function() {
+				//Dibuja el fondo con la piedra
+				$('#jugador').css('background-image', 'url("RECURSOS/images/piedra.jpg")');
+				//Lama a la función ordenador para la selección de imagen del PC
+				ordenador();
+				//Comprobamos y sumamos a los contadores correspondientes
+				if (numero == 1) {
+					alert("Empate!!!");
+					cuentaEmpate++;
+					$("#contEmpate").text(cuentaEmpate);
+				}else if (numero == 2) {
+					alert("Has perdido!!!");
+					cuentaOrdenador++;
+					$("#contOrdenador").text(cuentaOrdenador);
+				}else {
+					alert("Has ganado!!!");
+					cuentaJugador++;
+					$("#contJugador").text(cuentaJugador);
+				}
+			});
+
+			$('#papel').click(function() {
+				$('#jugador').css('background-image', 'url("RECURSOS/images/papel.jpg")');
+				ordenador();
+				if (numero == 1) {
+					alert("Has ganado!!!");
+					cuentaJugador++;
+					$("#contJugador").text(cuentaJugador);
+				}else if (numero == 2) {
+					alert("Empate!!!");
+					cuentaEmpate++;
+					$("#contEmpate").text(cuentaEmpate);
+				}else {
+					alert("Has perdido!!!");
+					cuentaOrdenador++;
+					$("#contOrdenador").text(cuentaOrdenador);
+				}
+			});
+
+			$('#tijeras').click(function() {
+				$('#jugador').css('background-image', 'url("RECURSOS/images/tijeras.jpg")');
+				ordenador();
+				if (numero == 1) {
+					alert("Has perdido!!!");
+					cuentaOrdenador++;
+					$("#contOrdenador").text(cuentaOrdenador);
+				}else if (numero == 2) {
+					alert("Has ganado!!!");
+					cuentaJugador++;
+					$("#contJugador").text(cuentaJugador);
+				}else {
+					alert("Empate!!!");
+					cuentaEmpate++;
+					$("#contEmpate").text(cuentaEmpate);
+				}
+			});
+
+		function ordenador () {
+			numero=Math.floor(Math.random()*3);
+			if (numero == 1) {
+					$("#ordenador").css('background-image', 'url("RECURSOS/images/piedra.jpg")');
+				}else if (numero == 2) {
+					$("#ordenador").css('background-image', 'url("RECURSOS/images/papel.jpg")');
+				}else {
+					$("#ordenador").css('background-image', 'url("RECURSOS/images/tijeras.jpg")');
+				};
+		}//funcion ordenador
+		});
+	</script>
+</head>
+<body>
+	<header><img id="logo" src="RECURSOS/images/logo.png" /><h1 id="titulo">Juego piedra, papel, tijeras</h1></header>
+	<div id="cuerpo">
+		<table border="1" align="center">
+			<tr>
+				<td>Jugador :<p id="contJugador">0</p></td>
+				<td>contra</td>
+				<td>Ordenador :<p id="contOrdenador">0</p></td>
+			</tr>
+			<tr>
+				<td id="jugador" class="posicion"></td><td id="2" class="posicion" style="background-image:url('RECURSOS/images/vs.jpg')"></td><td id="ordenador" class="posicion"></td>
+			</tr>
+			<tr>
+				<td colspan="3">ELIGE Piedra, Papel o Tijeras</td>
+			</tr>
+			<tr>
+				<td id="piedra" class="muestra" style="background-image:url('RECURSOS/images/piedra.jpg')"></td><td id="papel" class="muestra" style="background-image:url('RECURSOS/images/papel.jpg')"></td><td id="tijeras" class="muestra" style="background-image:url('RECURSOS/images/tijeras.jpg')"></td>
+			</tr>
+		</table>
+		<div id="empate">
+			Empate :<p id="contEmpate">0</p>
+		</div>
+		<footer><p id="autor">&copy;Iker Oñatibia - 2015</p></footer>
+</body>
+</html>

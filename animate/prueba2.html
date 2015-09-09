@@ -1,0 +1,102 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Prueba animate</title>
+	<meta charset="UTF-8" />
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		#foto{
+			background-size:55%;
+			width: 55%;
+			height: 55%;
+			position:relative;
+			background-image:url('');
+			margin: auto;
+			background-repeat: no-repeat;
+			background-position: center;
+			opacity:0;
+			right:0;
+			left:0;
+		}
+	</style>
+	<script src="lib/jquery-1.11.2.min.js"></script>
+	<script src="lib/jquery.animate-colors.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#poner").click(function(event) {
+				$("#foto")
+				.css('backgroundImage', 'url(images/ordenador1.jpg)')
+				.animate({opacity:'1'});
+			});
+
+			$("#grande").click(function(event) {
+				$("#foto").animate({
+					width:'80%',
+					height:'80%',
+					backgroundSize:'80%'
+				}, 1000)
+			});
+
+			$("#pequeno").click(function(event) {
+				$("#foto").animate({
+					width:'20%',
+					height:'20%',
+					backgroundSize:'20%'
+				}, 1000)
+			});
+
+			$("#normal").click(function(event) {
+				$("#foto").animate({
+					width: '55%',
+					height: '55%',
+					backgroundSize:'55%'
+				});
+			});
+
+			$("#moverI").click(function(event) {
+				if ($("#foto").css('right') < '500' || $("#foto").css('right') === '0') {
+					$("#foto").animate({
+						right:'+=250',
+						left:'-=250'
+						}, 1000)
+				}
+			});
+
+			$("#moverD").click(function(event) {
+				if ($("#foto").css('left') < '500' || $("#foto").css('left') === '0') {
+					$("#foto").animate({
+						left:'+=250',
+						right:'-=250'
+					}, 1000)
+				};
+			});
+
+			$("#reset").click(function(event) {
+				$("#foto").css({
+					backgroundSize:'55%',
+					width:'55%',
+					height:'55%',
+					backgroundImage:'url("")',
+					opacity:'0',
+					right:'0',
+					left:'0',
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="foto">
+	</div>
+	<br>
+	<input id="poner" type="submit" value="Pon foto" />
+	<input id="grande" type="submit" value="Grande" />
+	<input id="pequeno" type="submit" value="Pequeño" />
+	<input id="normal" type="submit" value="Normal" />
+	<input id="moverI" type="submit" value="Mover Izquierda" />
+	<input id="moverD" type="submit" value="Mover Derecha" />
+	<input id="reset" type="submit" value="Reset"/>
+</body>
+</html>

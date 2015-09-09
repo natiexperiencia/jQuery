@@ -1,0 +1,115 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Menú Horizontal</title>
+
+	<!-- Estilos -->
+	<style type="text/css">
+		ul {
+			list-style: none;
+			float:left;
+			border: 1px solid white;
+			background-color:grey;
+			color:black;
+			width:200px;
+			height:25px;
+			padding-left:5px;
+			padding-top:5px;
+		}
+
+		ul:hover {
+			cursor: pointer;
+			border: 2px solid red;
+		}
+
+		ol {
+			list-style: none;
+			display: none;
+		}
+
+		ol li {
+			background-color:white;
+			color:black;
+			border: 1px dotted black;
+			width:200px;
+			margin-left:-44px;
+			margin-bottom:5px;
+		}
+
+		ol li:hover {
+			background-color:black;
+			color:white;
+			cursor:pointer;
+		}
+
+		footer {
+			margin-top:300px;
+			clear: left;
+		}
+	</style>
+
+	<!-- Librería jQuery -->
+	<script src="lib/jquery-1.11.2.min.js"></script>
+
+	<!-- Script usando jQuery para ocultar y mostrar los submenus -->
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			$("#menu1").click(function() {
+				$("#submenu1").fadeToggle('slow');
+			});
+
+			$("#menu2").click(function() {
+				$("#submenu2").fadeToggle('slow');
+			});
+
+			$("#menu3").click(function() {
+				$("#submenu3").fadeToggle('slow');
+			});
+			$("#submenu1").click(function() {
+				$("#submenu1").fadeToggle('slow');
+			});
+			$("#submenu2").click(function() {
+				$("#submenu2").fadeToggle('slow');
+			});
+			$("#submenu3").click(function() {
+				$("#submenu3").fadeToggle('slow');
+			});
+		});
+	</script>
+
+</head>
+<body>
+
+	<h1>Menú horizontal con jQuery</h1>
+	<nav>
+		<ul>
+			<li id="menu1">Menú - 1</li>
+			<ol id="submenu1">
+				<li>Submenú - 1.1</li>
+				<li>Submenú - 1.2</li>
+				<li>Submenú - 1.3</li>
+			</ol>
+		</ul>
+		<ul>
+			<li id="menu2">Menú - 2</li>
+			<ol id="submenu2">
+				<li>Submenú - 2.1</li>
+				<li>Submenú - 2.2</li>
+				<li>Submneú - 2.3</li>
+			</ol>
+		</ul>
+		<ul>
+			<li id="menu3">Menú - 3</li>
+			<ol id="submenu3">
+				<li class="sub3">Submenú - 3.1</li>
+				<li class="sub3">Submenú - 3.2</li>
+				<li class="sub3">Submenú - 3.3</li>
+			</ol>
+		</ul>
+	</nav>
+	<footer>
+		<h5>Iker Oñatibia &copy; -- 2015</h5>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Test</title>
+	<meta charset="UTF-8" />
+	<style type="text/css">
+		body{
+			background-image:url('images/fondo.jpg');
+		}
+		div{
+			border:1px solid black;
+			padding:10px;
+			padding-left:50px;
+			padding-top:25px;
+			background-color:lightgrey;
+			border-radius:25px;
+			box-shadow:5px 5px 15px;
+		}
+		.boton{
+			margin-left:1000px;
+		}
+		h1,h3{
+			color:orange;
+			background-color: black;
+			padding:5px;
+			border-radius:5px;
+		}
+		h2{
+			color:white;
+			border-radius:5px;
+		}
+		footer p{
+			text-align: center;
+			color:red;
+			font-weight: bold;
+		}
+		#titulo{
+			text-align: center;
+		}
+	</style>
+	<script src="lib/jquery-1.11.2.min.js"></script>
+	<script src="lib/jquery.animate-colors.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			var contador = 0;
+
+			$('.boton').click(function(event) {
+
+				var num = $(this).attr('name');
+				var resultado = $('input[name=resp'+num+']:checked').val();
+				if (resultado == undefined) {
+					alert("No has seleccionado nada");
+				};
+
+				if (resultado == "Correcto") {
+					$("#cuadro"+num).animate({
+						backgroundColor: 'green',
+						height:'60px'
+					}, 500)
+					$("#cuadro"+num).html('<h2>'+resultado+'</h2>');
+					contador++;
+					$("#contador").html('Puntuación: '+contador);
+					if (contador >= 5) {
+						$("#contador").animate({
+							color:'green'
+						}, 500)	
+					};
+				}else if(resultado == "Incorrecto"){
+					$("#cuadro"+num).animate({
+						backgroundColor:'red',
+						height:'60px'
+					}, 500)
+					$("#cuadro"+num).html('<h2>'+resultado+'</h2>');
+				}
+				if (contador == 5) {
+				alert("Has aprobado....\nSigue así!!!");
+				};
+				if (contador == 10){
+					alert("Perfecto!!!");
+				}
+			});
+
+
+			
+		});
+	</script>
+
+</head>
+<body>
+	<h1 id="titulo">Test Conocimientos generales</h1>
+
+	<!-- Primera pregunta-->
+	<h3 id="pregunta">1.- ¿En qué deporte se usa tiza?.</h3>
+	<div id="cuadro1">
+		<input type="radio" name="resp1" value="Correcto" />
+		<label>En el Billar</label><br>
+		<input type="radio" name="resp1" value="Incorrecto" />
+		<label>En el Fútbol</label><br>
+		<input type="radio" name="resp1" value="Incorrecto" />
+		<label>En el Tenis</label><br>
+		<input type="radio" name="resp1" value="Incorrecto" />
+		<label>En el Rugby</label><br>
+		<input class="boton" type="submit" name="1" value="Comprobar" />
+	</div>
+
+	<!-- Segunda pregunta-->
+	<h3 id="pregunta">2.- ¿Cuántas manos tiene un caballo?</h3>
+	<div id="cuadro2">
+		<input type="radio" name="resp2" value="Incorrecto" />
+		<label>3</label><br>
+		<input type="radio" name="resp2" value="Correcto" />
+		<label>2</label><br>
+		<input type="radio" name="resp2" value="Incorrecto" />
+		<label>4</label><br>
+		<input type="radio" name="resp2" value="Incorrecto" />
+		<label>0</label><br>
+		<input class="boton" type="submit" name="2" value="Comprobar" />
+	</div>
+
+	<!-- Tercera pregunta-->
+	<h3 id="pregunta">3.- ¿Cuáles son las dos primeras palabras de la Biblia?</h3>
+	<div id="cuadro3">
+		<input type="radio" name="resp3" value="Incorrecto" />
+		<label>La biblia</label><br>
+		<input type="radio" name="resp3" value="Incorrecto" />
+		<label>El señor</label><br>
+		<input type="radio" name="resp3" value="Correcto" />
+		<label>Al principio</label><br>
+		<input type="radio" name="resp3" value="Incorrecto" />
+		<label>Al final</label><br>
+		<input class="boton" type="submit" name="3" value="Comprobar" />
+	</div>
+
+	<!-- Cuarta pregunta-->
+	<h3 id="pregunta">4.- ¿Qué instrumento musical tiene nombre y forma geométricos?</h3>
+	<div id="cuadro4">
+		<input type="radio" name="resp4" value="Incorrecto" />
+		<label>El acordeón</label><br>
+		<input type="radio" name="resp4" value="Incorrecto" />
+		<label>El oboe</label><br>
+		<input type="radio" name="resp4" value="Incorrecto" />
+		<label>El cuadrado</label><br>
+		<input type="radio" name="resp4" value="Correcto" />
+		<label>El triángulo</label><br>
+		<input class="boton" type="submit" name="4" value="Comprobar" />
+	</div>
+
+	<!-- Quinta pregunta-->
+	<h3 id="pregunta">5.- ¿Cómo se llaman las crías de la mula?</h3>
+	<div id="cuadro5">
+		<input type="radio" name="resp5" value="Incorrecto" />
+		<label>Burrito</label><br>
+		<input type="radio" name="resp5" value="Incorrecto" />
+		<label>Burro</label><br>
+		<input type="radio" name="resp5" value="Correcto" />
+		<label>La mula no tiene crías</label><br>
+		<input type="radio" name="resp5" value="Incorrecto" />
+		<label>Mulita</label><br>
+		<input class="boton" type="submit" name="5" value="Comprobar" />
+	</div>
+
+	<!-- Sexta pregunta-->
+	<h3 id="pregunta">6.- ¿Qué isla del Caribe tiene nombre de flor?</h3>
+	<div id="cuadro6">
+		<input type="radio" name="resp6" value="Incorrecto" />
+		<label>Isla cardo</label><br>
+		<input type="radio" name="resp6" value="Incorrecto" />
+		<label>Isla lirio</label><br>
+		<input type="radio" name="resp6" value="Incorrecto" />
+		<label>Isla Rosa</label><br>
+		<input type="radio" name="resp6" value="Correcto" />
+		<label>Isla Margarita</label><br>
+		<input class="boton" type="submit" name="6" value="Comprobar" />
+	</div>
+
+	<!-- Séptima pregunta-->
+	<h3 id="pregunta">7.- ¿Cuántas capitales de provincia españolas empiezan por "V"?</h3>
+	<div id="cuadro7">
+		<input type="radio" name="resp7" value="Correcto" />
+		<label>3</label><br>
+		<input type="radio" name="resp7" value="Incorrecto" />
+		<label>6</label><br>
+		<input type="radio" name="resp7" value="Incorrecto" />
+		<label>5</label><br>
+		<input type="radio" name="resp7" value="Incorrecto" />
+		<label>2</label><br>
+		<input class="boton" type="submit" name="7" value="Comprobar" />
+	</div>
+
+	<!-- Octava pregunta-->
+	<h3 id="pregunta">8.- ¿Cuál es la residencia oficial más grande del mundo?</h3>
+	<div id="cuadro8">
+		<input type="radio" name="resp8" value="Correcto" />
+		<label>El Vaticano</label><br>
+		<input type="radio" name="resp8" value="Incorrecto" />
+		<label>La Casa Blanca</label><br>
+		<input type="radio" name="resp8" value="Incorrecto" />
+		<label>El Taj Mahal</label><br>
+		<input type="radio" name="resp8" value="Incorrecto" />
+		<label>La moncloa</label><br>
+		<input class="boton" type="submit" name="8" value="Comprobar" />
+	</div>
+
+	<!-- Novena pregunta-->
+	<h3 id="pregunta">9.- ¿Cuál de los cinco sentidos se desarrolla el primero?</h3>
+	<div id="cuadro9">
+		<input type="radio" name="resp9" value="Incorrecto" />
+		<label>La vista</label><br>
+		<input type="radio" name="resp9" value="Incorrecto" />
+		<label>El tacto</label><br>
+		<input type="radio" name="resp9" value="Correcto" />
+		<label>El olfato</label><br>
+		<input type="radio" name="resp9" value="Incorrecto" />
+		<label>El oido</label><br>
+		<input class="boton" type="submit" name="9" value="Comprobar" />
+	</div>
+
+	<!-- Décima pregunta-->
+	<h3 id="pregunta">10.- ¿Qué tienen las ranas en la boca que no tienen los sapos?</h3>
+	<div id="cuadro10">
+		<input type="radio" name="resp10" value="Incorrecto" />
+		<label>Veneno</label><br>
+		<input type="radio" name="resp10" value="Incorrecto" />
+		<label>Papilas</label><br>
+		<input type="radio" name="resp10" value="Correcto" />
+		<label>Dientes</label><br>
+		<input type="radio" name="resp10" value="Incorrecto" />
+		<label>Lengua</label><br>
+		<input class="boton" type="submit" name="10" value="Comprobar" />
+	</div>
+
+
+	<footer>
+		<h1 id="contador">Puntuación: 0</h1>
+		<p>&copy;Iker Oñatibia 2015</p>
+	</footer>
+</body>

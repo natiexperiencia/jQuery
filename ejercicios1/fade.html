@@ -1,0 +1,108 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Fade</title>
+	<meta charset="UTF-8" />
+	<style type="text/css">
+		img{
+			width:100px;
+			height:100px;
+		}
+	</style>
+	<script src="./lib/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#in").click(function() {
+			$("#imagen1").fadeIn('slow', 'swing');
+			$("#imagen2").fadeIn('fast', 'linear');
+		});// fadeIN
+
+		$("#out").click(function() {
+			$("#imagen1").fadeOut(1);
+			$("#imagen2").fadeOut(10000);
+		});// fadeOut
+
+		$("#toggle").click(function() {
+			$("#imagen1").fadeToggle(1200, 'linear');
+			$("#imagen2").fadeToggle(600, 'linear');
+		});// fadeToggle
+
+		$("#to").click(function() {
+			$("#imagen1").fadeTo(10000, '0.5', 'swing');
+			$("#imagen2").fadeTo(10000, '0.1', 'swing');
+		});// fade To
+
+		$("#slideUp").click(function() {
+			$("#imagen1").slideUp(2000);
+			$("#imagen2").slideUp(2000);
+		});// slide Up
+
+		$("#slideDown").click(function() {
+			$("#imagen1").slideDown(1000);
+			$("#imagen2").slideDown(1000);
+		});// slide Down
+
+		$("#slideToggle").click(function() {
+			$("#imagen1").slideToggle(1000);
+			$("#imagen2").slideToggle(1000);
+		});// slide Toggle
+
+		$("#demo").click(function() {
+			$("#imagen1").slideToggle(1000);
+			$("#imagen2").slideToggle(20);
+		});// slide Toggle demo
+
+		$("#tabla").click(function() {
+			$('table').slideToggle(500);
+		});
+
+	});// ready
+
+	</script>
+</head>
+<body>
+	<button id="in">In</button>
+	<button id="out">Out</button>
+	<button id="toggle">Toggle</button>
+	<button id="to">To</button>
+	<button id="slideDown">Slide Down</button>
+	<button id="slideUp">Slide Up</button>
+	<button id="slideToggle">Slide Toggle</button>
+	<button id="demo">Demo</button>
+	<button id="tabla">Tabla</button>
+	<div id="imagen1"><img src="images/aplus.jpg" /></div>
+	<div id="imagen2"><img src="images/aplus2.jpg" /></div>
+	<table border='1'>
+            <tr>
+                <td>Producto 1</td>
+            </tr>
+             <tr>
+                <td>Producto 2</td>
+            </tr>
+             <tr>
+                <td>Producto 3</td>
+            </tr>
+             <tr>
+                <td>Producto 4</td>
+            </tr>
+             <tr>
+                <td>Producto 5</td>
+            </tr>
+             <tr>
+                <td>Producto 6</td>
+            </tr>
+             <tr>
+                <td>Producto 7</td>
+            </tr>
+             <tr>
+                <td>Producto 8</td>
+            </tr>
+             <tr>
+                <td>Producto 9</td>
+            </tr>
+            <tr>
+                <td>Producto 10</td>
+            </tr>
+       </table>
+</body>
+</html>

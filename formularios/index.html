@@ -1,0 +1,147 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Formulario</title>
+	<script src="lib/jquery-1.11.2.min.js"></script>
+	<script src="lib/jquery.animate-colors.js" type="text/javascript"></script>
+	<script src="lib/jquery.validate.min.js" type="text/javascript"></script>
+	<style type="text/css">
+	body{
+		background-color: blue;
+		color:white;
+	}
+		div{
+			float: right;
+			clear: right;
+			display: block;
+			margin-right:600px;
+			margin-bottom:15px;
+		}
+		#radio{
+			margin-left: 90px;
+		}
+		h1{
+			border-bottom: 4px dotted red;
+		}
+		#form label.error{
+		font-size: 0.8em;
+		color: red;
+		font-weight: bold;
+		margin-left: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("#formulario").validate({
+
+				rules:{
+					nombre:{
+						required:true,
+						maxlength:20
+					},
+					apellido:{
+						required:true,
+						maxlength:50
+					},
+					edad:{
+						digits:true,
+						required:true,
+						min:18
+					},
+					fechNac:{
+						required:true,
+						date:true
+					},
+					email:{
+						required:true,
+						email:true
+					},
+					check:"required",
+					selectDestino:"required",
+					radio:"required"
+					
+				},//Rules
+
+				messages:{
+					nombre:{
+						required:"Introduce el nombre",
+						maxlength:"Máximo 20 caracteres"
+					},
+					apellido:{
+						required:"Introduce el apellido",
+						maxlength:"Máximo 50 caracteres"
+					},
+					edad:{
+						digits:"Tiene que ser un número",
+						required:"Introduce la edad",
+						min:"Mínimo 18 años"
+					},
+					fechNac:{
+						required:"Introduce la fecha de nacimiento",
+						date:"Tiene que ser una fecha válida"
+					},
+					email:{
+						required:"Introduce el email",
+						email:"Tiene que ser una direccion de email válida"
+					},
+					check:"Introduce una afición",
+					selectDestino:"Selecciona un destino",
+					radio:"Selecciona una respuesta"
+				},//Messages 
+
+				errorPlacment: function(error,element){
+					if( element.is(":radio") || element.is(":checkbox")){
+						error.appendTo(element.parent());
+					}else{
+						error.insertAfter(element);
+					}
+				}
+			});//Validate
+		});//Ready
+	</script>
+</head>
+<body>
+	<h1>Formulario</h1>
+	<form action="" method="POST" id="formulario">
+		<div id="divNombre">
+			<label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre" /><br/>
+		</div><!--Nombre-->
+		<div id="divApellido">
+			<label for="apellido">Apellido: </label><input type="text" id="apellido" name="apellido" placeholder="Introduce tu apellido" /><br/>
+		</div><!--Apellido-->
+		<div id="divEdad">
+			<label for="edad">Edad: </label><input type="number" id="edad" name="edad"/><br/>
+		</div><!--Edad-->
+		<div id="divFechNac">
+			<label for="fechNac">Fecha Nacimiento: </label><input type="date" id="fechNac" name="fechNac" placeholder="dd/mm/aaaa" /><br/>
+		</div><!--Fecha nacimiento-->
+		<div id="divEmail">
+			<label for="email">Email: </label><input type="email" id="email" name="email" placeholder="xxxx@xxxx.xxx" /><br/>
+		</div><!--Email-->
+		<div id="divAficiones">
+		<label for="check">Aficiones: </label>
+			<input type="checkbox" id="check" name="check" value="1" />Lectura
+			<input type="checkbox" id="check" name="check" value="2" />Cine
+			<input type="checkbox" id="check" name="check" value="3" />Viajar
+		</div><!-- Aficiones-->
+		<div id="divDestino">
+			<label for="selectDestino">Destino del viaje</label>
+			<select id="selectDestino" name="selectDestino">
+				<option value="selecciona" disabled selected>Selecciona uno</option>
+				<option value="caribe" id="caribe">Caribe</option>
+				<option value="alaska" id="alaska">Alaska</option>
+				<option value="desierto" id="desierto">Desierto</option>
+			</select>
+		</div><!--Destino-->
+		<div id="divInfo">
+			<label for="radio">¿Deseas recibir información por correo electrónico?</label><br/>
+			<input type="radio" id="radio" name="radio" value="si" />Si
+			<input type="radio" id="radio" name="radio" value="no" />No
+		</div>
+		<div id="divSubmit">
+			<input type="submit" id="submit" name="submit" value="Enviar" />
+		</div>
+	</form>
+</body>

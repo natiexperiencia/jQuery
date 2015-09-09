@@ -1,0 +1,13 @@
+body{
+	background: linear-gradient(lightblue,black);
+}
+#form label.error{
+	font-size: 0.8em;
+	color: red;
+	font-weight: bold;
+	float: left;
+}
+#contenedor {
+	width: 150px;
+	margin: auto;
+}

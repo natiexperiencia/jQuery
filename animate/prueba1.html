@@ -1,0 +1,70 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Prueba animate</title>
+	<meta charset="UTF-8" />
+	<style type="text/css">
+		#parrafo{
+			border: 1px solid black;
+			color: black;
+			font-size:10px;
+			width:50%;
+			position:relative;
+		}
+		#cuadrado{
+			background-size:100px 100px;
+			width:100px;
+			height:100px;
+			background-color:green;
+			position:absolute;
+		}
+	</style>
+	<script src="lib/jquery-1.11.2.min.js"></script>
+	<script src="lib/jquery.animate-colors.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#animar").click(function(event) {
+				$("#parrafo").animate({
+					'border-bottom-width': '20px',
+					'border-top-width': '30px',
+					'fontSize': '50px',
+					'letterSpacing':'30px',
+
+					'backgroundColor':'red',
+					'left':'120px'
+				}, 1000)
+			});
+
+			$("#animar").click(function(event) {
+				$("#cuadrado").animate({
+					'backgroundColor':'red',
+					'left':'+=120px',
+					'marginTop':'+=200px'
+				}, 1000)
+			});
+
+			$("#restaurar").click(function(event) {
+				$("#parrafo").animate({
+					'border-bottom-width': '1px',
+					'border-top-width':'1px',
+					'fontSize': '10px',
+					'letterSpacing':'0px',
+					'marginTop':'0px'
+				}, 1000)
+				$("#cuadrado").animate({
+					'backgroundColor':'green',
+					'left':'-=120px',
+					'marginTop':'-=200px'
+				}, 1000)
+			});
+		});
+	</script>
+</head>
+<body>
+	<p id="parrafo">El Párrafo</p><br/><br/>
+	<div id="cuadrado">
+	</div><br><br><br><br><br><br>
+	<input id="animar" type="submit" value="animar" />
+	<input id="restaurar" type="submit" value="restaurar" />
+</body>
+</html>

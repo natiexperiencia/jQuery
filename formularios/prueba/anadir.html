@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Añadir obra</title>
+<link rel="StyleSheet" href="css/styles.css" type="text/css">
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="jquery.animate-colors.js"></script>
+<script type="text/javascript" src="jquery.validate.min.js"></script>
+<script type="text/javascript" src="funciones.js"></script>
+</head>
+<body>
+<br>
+<div id="contenedor">
+<nav>
+<p class="primerElemento"><a href="index.html">Home</a></p>
+<p><a href="anadir.html">Añadir</a></p>
+<p><a href="borrar.html">Borrar</a></p>
+<p><a href="buscar.html">Buscar</a></p>
+<p><a href="listar.html">Listar</a></p>
+<p><a href="modificar.html">Modificar</a></p>
+</nav>
+</div>
+<br><br>
+	<form id="form" action="Anadir" method="POST">
+		<div id="cuerpoLibro">
+			<fieldset>
+				<legend>Libro:</legend>
+				<label for="titulo">Título: </label><input type="text" id="titulo" name="titulo" />
+				<br/>
+				<label for="anoEdicion">Año edición: </label><input type="number" id="anoEdicion" name="anoEdicion" placeholder="aaaa" />
+				<br/>
+				<label for="editorial">Editorial: </label><input type="text" id="editorial" name="editorial" />
+				<br/>
+				<label for="numPaginas">Número de páginas: </label><input type="number" id="numPaginas" name="numPaginas" />
+				<br/>
+				<label for="nAutor">Autor (nombre): </label><input type="text" id="nAutor" name="nAutor" />
+				<br/>
+				<label for="aAutor">Autor (año nacimiento): </label><input type="number" name="aAutor" id="aAutor" />
+				<br/>
+			</fieldset>
+		</div>
+		<div id="cuerpoDisco">	
+			<fieldset>
+				<legend>Disco:</legend>
+				<label for="titulo">Título: </label><input type="text" id="titulo" name="titulo" />
+				<br/>
+				<label for="anoEdicion">Año edición: </label><input type="number" id="anoEdicion" name="anoEdicion" />
+				<br/>
+				<label for="discografia">Discografía: </label><input type="text" id="discografia" name="discografia" />
+				<br/>
+				<label for="numCanciones">Número de canciones: </label><input type="number" id="numCanciones" name="numCanciones" />
+				<br/>
+				<label for="nAutor">Autor (nombre): </label><input type="text" id="nAutor" name="nAutor" />
+				<br/>
+				<label for="aAutor">Autor (año nacimiento): </label><input type="number" name="aAutor" id="aAutor" />
+				<br/>
+			</fieldset>
+		</div>
+		<div id="cuerpoPelicula">
+			<fieldset>
+				<legend>Película:</legend>
+				<label for="titulo">Título: </label><input type="text" name="titulo" id="titulo" />
+				<br/>
+				<label for="anoEdicion">Año edición: </label><input type="number" name="anoEdicion" id="anoEdicion" />
+				<br/>
+				<label for="productora">Productora</label><input type="text" name="productora" id="productora" />
+				<br/>
+				<label for="nAutor">Autor (nombre): </label><input type="text" id="nAutor" name="nAutor" />
+				<br/>
+				<label for="aAutor">Autor (año nacimiento): </label><input type="number" name="aAutor" id="aAutor" />
+				<br/>
+			</fieldset>
+		</div>
+		<input type="radio" name="radio" value="libro" />Libro
+		<input type="radio" name="radio" value="disco" />Disco
+		<input type="radio" name="radio" value="pelicula" />Pelicula
+		<br/>
+		<input type="submit" name="submit" value="Enviar" />
+	</form>
+<footer>
+<p>&copy;Miguel Gil & Iker Oñatibia -- 2015</p>
+</footer>
+</body>

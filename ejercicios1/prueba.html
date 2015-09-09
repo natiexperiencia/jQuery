@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Fade</title>
+	<meta charset="UTF-8" />
+	<style type="text/css">
+		img{
+			width:200px;
+			height:200px;
+			margin-top:50px;
+		}
+	</style>
+	<script src="./lib/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+
+		$("#in").click(function() {
+			for (var i = 0; i < 100; i++) {
+				$("#imagen1").slideToggle(2000);
+				$("#imagen2").slideToggle(2000);
+				$("#contador").append(i);
+			};// for
+		});// click
+	});// ready
+
+	</script>
+</head>
+<body>
+	<button id="in">Marcha</button>
+
+	<div id="imagen1"><img src="images/aplus.jpg" /></div>
+	<div id="imagen2"><img src="images/aplus2.jpg" /></div>
+	<p id="contador"></p>
+	
+</body>
+</html>
