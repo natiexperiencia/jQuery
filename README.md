@@ -8,6 +8,6 @@ Pruebas y ejercicios con jQuery
 **<https://jqueryui.com/>  
 *jsTween  
 **<http://www.jstween.org/>  
-*MooTools 
+*MooTools  
 **<http://mootools.net/> 
 
