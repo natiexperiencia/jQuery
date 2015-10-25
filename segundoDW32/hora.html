@@ -1,0 +1,38 @@
+<html>
+<head>
+	<script type="text/javascript" src="lib\jquery-1.11.3.min.js"></script>
+	<style type="text/css">
+		@font-face{
+			font-family: miFuente;
+			src:url('resources/SpicyRice-Regular.otf');
+		}
+		#demo{
+			text-align: center;
+			margin-top: 200px;
+			font-size: 50px;
+			font-family: miFuente;
+			letter-spacing: 5px;
+			-webkit-text-fill-color:#333388;
+		}
+	</style>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			var fecha = new Date();
+			var hora = fecha.getHours();
+			if (hora > 7 && hora < 13) {
+				$("#demo").html("<h2>Buenos dias</h2>");
+				$("body").css('background','linear-gradient(black,yellow)');	
+			}else if(hora < 20){
+				$("#demo").html("<h2>Buenas tardes");
+				$("body").css('background','linear-gradient(brown,yellow)');
+			}else{
+				$("#demo").html("<h2>Buenas noches</h2>");
+				$("body").css('background','linear-gradient(lightblue,black)');
+			}
+		});
+	</script>
+</head>
+<body>
+<p id="demo"></p>
+</body>
+</html>
