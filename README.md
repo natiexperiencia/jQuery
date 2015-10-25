@@ -7,7 +7,7 @@ Pruebas y ejercicios con jQuery
 *UI  
 **<https://jqueryui.com/>  
 *jsTween  
-**<http://www.jstween.org/>
+**<http://www.jstween.org/>  
 *MooTools 
 **<http://mootools.net/> 
 
