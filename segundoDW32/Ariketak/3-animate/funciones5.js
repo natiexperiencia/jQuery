@@ -1,23 +1,11 @@
 $(document).ready(function() {
-	/*$('#start').click(function(event) {
-		$('#cuadrado').slideDown(4000);
-		$('#cuadrado').animate({
-			marginLeft:'-=200px',
-			backgroundColor:'blue'
-		}, 4000);
-		$('#cuadrado').slideUp(4000);
-		$('#cuadrado').css({
-			backgroundColor: 'red',
-			marginLeft: '550px'
-		});
-	});*/
 
 	$('#stop').click(function(event) {
 		$('#cuadrado').stop();
 		$('#cuadrado').slideUp(400,function(){
 			$('#cuadrado').css({
 			backgroundColor: 'red',
-			marginLeft: '550px',
+			marginLeft: '650px',
 			});
 		});
 	});
@@ -31,10 +19,10 @@ $(document).ready(function() {
 				$('#cuadrado').slideUp(4000,function(){
 					$('#cuadrado').css({
 						backgroundColor: 'red',
-						marginLeft: '550px'
-					});
-				});
-			});
-		});
+						marginLeft: '650px'
+					});//css
+				});//slideUp
+			});//animate
+		});//slideDown
 	});
 });
