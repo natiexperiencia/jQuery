@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Formulario</title>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="../../../lib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../../lib/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="funciones.js"></script>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		fieldset{
+			width: 70%;
+			margin: auto;
+		}
+		input{
+			margin-bottom: 15px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Formulario</h1>
+	<fieldset>
+		<form id="formulario">
+			<tr><td>Nombre (*): 
+				<br/>
+				<input type="text" id="nombre" name="nombre" placeholder="Nombre" />
+			</td></tr>
+			<br/>
+			<tr><td>Opinion (*): 
+				<br/>
+				<textarea id="textarea" name="textarea" rows="4" cols="50" placeholder="Opinion"></textarea>
+			</td></tr>
+			<br/>
+
+		</form>
+	</fieldset>
+</body>
+</html>
