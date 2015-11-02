@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
 	<script type="text/javascript" src="../../../lib/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="../../../lib/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../../../lib/additional-methods.min.js"></script>
 	<script type="text/javascript" src="funciones.js"></script>
 	<style type="text/css">
 		body{
@@ -13,8 +14,42 @@
 			width: 70%;
 			margin: auto;
 		}
-		input{
+		input, textarea,select,button{
 			margin-bottom: 15px;
+		}
+		button{
+			margin-right: 15px;
+		}
+		#formulario label.error{
+			font-size: 0.8em;
+			color: red;
+			font-weight: bold;
+			margin-right: 5px;
+		}
+		.input_text{
+			background:#FFF;  
+		    width:200px;  
+		    height:30px;  
+		    line-height:22px;  
+		    padding:4px;  
+		    border:1px solid #999;
+		    border-radius: 10px;
+		}
+		.input_text_seleccionado{
+			background:#999;
+			color:white; 
+		    border-radius: 10px;
+		    outline: none;
+		    box-shadow: 5px 5px 15px black;
+		}
+		.input_text_area{
+			background:#FFF;  
+		    width:200px;  
+		    height:30px;  
+		    line-height:22px;  
+		    padding:4px;  
+		    border:1px solid #999;
+		    border-radius: 10px;
 		}
 	</style>
 </head>
@@ -24,16 +59,45 @@
 		<form id="formulario">
 			<tr><td>Nombre (*): 
 				<br/>
-				<input type="text" id="nombre" name="nombre" placeholder="Nombre" />
+				<input type="text" id="nombre" name="nombre" placeholder="Nombre" class="input_text"/>
 			</td></tr>
 			<br/>
 			<tr><td>Opinion (*): 
 				<br/>
-				<textarea id="textarea" name="textarea" rows="4" cols="50" placeholder="Opinion"></textarea>
+				<textarea id="textarea" name="textarea" rows="4" cols="50" placeholder="Opinion" class="input_text_area"></textarea>
 			</td></tr>
 			<br/>
-
+			<tr>
+				Seguro? (*):
+				<br/>
+				<td><input type="radio" id="radio" name="radio" value="si" />Si</td>
+				<td><input type="radio" id="radio" name="radio" value="no" />No</td>
+				<td><input type="radio" id="radio" name="radio" value="nsnc"/>NS/NC</p></td>
+			</tr>
+			<br/>
+			<tr>
+				Selección (*):
+				<br/>
+				<td><input type="checkbox" id="leido" name="checkbox" value="Si" />He leido y acepto las condiciones</td>
+				<td><input type="checkbox" id="privacidad" name="checkbox" value="Si" />He leido la política de privacidad</td>
+			</tr>
+			<br/>
+			<tr>
+				<td>
+					Selecciona (*):
+					<br/>
+					<select name="select" id="select">
+						<option selected disabled>Selecciona</option>
+						<option value="1">Primero</option>
+						<option value="2">Segundo</option>
+						<option value="3">Tercero</option>
+					</select>
+				</td>
+			</tr>
+			<br/>
+			<button id="mostrar" return="false">Mostrar</button><input type="submit" value="enviar" />
 		</form>
 	</fieldset>
+	<div id="resp"></div>
 </body>
 </html>
