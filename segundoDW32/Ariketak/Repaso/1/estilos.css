@@ -1,0 +1,15 @@
+.parrafo{
+	font-family: Courier;
+	font-size: 12pt;
+}
+.parrafo_14{
+	font-family: Courier;
+	font-size: 14pt;
+}
+.parrafo_16{
+	font-family: Courier;
+	font-size: 16pt;
+}
+.parrafo_fondo_gris{
+	background: grey;
+}
