@@ -28,3 +28,17 @@ function fuera (boton) {
 	boton.style.backgroundColor="buttonface";
 	boton.style.color="black";
 }
+
+//evitar seleccion de texto
+window.onload = function()
+{
+     document.onselectstart = function()
+     {
+          return false;
+     } 
+// Firefox
+     document.onmousedown = function()
+     {
+          return false;
+     }
+}
