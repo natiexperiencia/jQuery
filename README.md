@@ -2,14 +2,19 @@
 Pruebas y ejercicios con jQuery
 
 ##Librerias
-* animate-colors  
-** <http://www.bitstorm.org/jquery/color-animation/>  
+* Animate-colors  
+** http://www.bitstorm.org/jquery/color-animation/  
 * UI  
-** <https://jqueryui.com/>  
+** https://jqueryui.com/  
 * jsTween  
-** <http://www.jstween.org/>  
+** http://www.jstween.org/  
 * MooTools  
-** <http://mootools.net/>  
+** http://mootools.net/  
 * Rotate  
 ** http://jqueryrotate.com/  
+*  Validate  
+** http://jqueryvalidation.org/  
+* Table sorter  
+** http://tablesorter.com/docs/  
+
 
