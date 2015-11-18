@@ -1,17 +1,25 @@
 $(document).ready(function() {
+
+	//disable input clave 
 	$('#clave').focus(function(event) {
 		$(this).attr('disabled', true);
 	});
+
+	//enable input clave for validation
 	$('#clave').blur(function(event) {
 		$(this).attr('disabled', false);
 	});
 
-	//botones random
-	for(var i = 0; i < 11; i++){
-		var numero = Math.floor(Math.random()*10);
-		alert(numero);
-	}
-	//botones
+	//botones random not repeat
+	var numeros = [0,1,2,3,4,5,6,7,8,9];
+	for (var i = 0; i < 10; i++) {
+		var numero = Math.floor(Math.random()*numeros.length);
+		var boton = $("<button value='"+numeros[numero]+"'></button>").text(numeros[numero]);
+		$('#botones').append(boton);
+		numeros.splice(numero,1);
+	};
+
+	//botones valor input, max length 4
 	var valorTotal = "";
 	$('button').click(function(event) {
 		var valor = $(this).val();
@@ -23,10 +31,17 @@ $(document).ready(function() {
 		}
 		return false;
 	});
+
+
+	/*
+	*	Validate
+	*/
+	//aditional method for dni
 	jQuery.validator.addMethod("dni", function(value, element) {
 		return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
 	});
 
+	//rules
 	var reglas = {
 		nombre:{required:true, maxlength:30},
 		lista:{required:true},
@@ -35,6 +50,7 @@ $(document).ready(function() {
 		clave:{required:true,minlength:4,maxlength:4},
 	};
 
+	//messages
 	var mensajes = {
 		nombre:{required:" Nombre requerido"},
 		lista:{required:" Seleccionar uno"},
@@ -43,21 +59,38 @@ $(document).ready(function() {
 		clave:{required:" Clave requerida", minlength:" Mínimo 4 dígitos", maxlength:" Máximo 4 dígitos"},
 	};
 
+	//validate function
 	$('#formulario').validate ({
 		rules:reglas,
 		messages:mensajes
 	});
 
-		//no coge valor como variable global
-		//var resultado = "Nombre: "+$('#nombre').val() + "<br/>Tipo de pago: "+$('#lista').val()+"<br/>DNI: "+$('#dni').val()+"<br/>Visa: "+$('#visa').val()+"<br/>Clave: "+$('#clave').val();
-	$('#formulario').submit(function(event) {
+		
+	/*$('#formulario').submit(function(event) {
 		//solución
 		var resultado = "Nombre: "+$('#nombre').val() + "<br/>Tipo de pago: "+$('#lista').val()+"<br/>DNI: "+$('#dni').val()+"<br/>Visa: "+$('#visa').val()+"<br/>Clave: "+$('#clave').val();
-		if ($('#nombre').val() == "") {
+		if ($('#nombre').val()=="" || $('#lista').val()=="" || $('#dni').val()=="" || $('#visa').val()==0 || $('#clave').val()=="") {
 
 		}else{
 			$('#resp').html(resultado);
 		}
 		return false;
+	});*/
+	$('#formulario').submit(function (event) {
+		datos = {
+			nombre:$('#nombre').val(),
+			tipoPago:$('#lista').val(),
+			dni:$('#dni').val(),
+			visa:$('#visa').val(),
+			clave:$('#clave').val()
+		};
+		//window.location.href = "resultado.html";
+		recuperar();
+		return false;
 	});
+
+	function recuperar () {
+		$('#resp').html("<h1>Nombre: "+datos.nombre+"</h1><br/><h3>Tipo de pago: "+datos.tipoPago+
+			"<br/>DNI: "+datos.dni+"<br/>Visa: "+datos.visa+"<br/>Clave: "+datos.clave+"</h3>");
+	};
 });
