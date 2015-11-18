@@ -1,4 +1,16 @@
 $(document).ready(function() {
+	$('#clave').focus(function(event) {
+		$(this).attr('disabled', true);
+	});
+	$('#clave').blur(function(event) {
+		$(this).attr('disabled', false);
+	});
+
+	//botones random
+	for(var i = 0; i < 11; i++){
+		var numero = Math.floor(Math.random()*10);
+		alert(numero);
+	}
 	//botones
 	var valorTotal = "";
 	$('button').click(function(event) {
