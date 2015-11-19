@@ -76,7 +76,7 @@ $(document).ready(function() {
 		}
 		return false;
 	});*/
-	$('#formulario').submit(function (event) {
+	/*$('#formulario').submit(function (event) {
 		datos = {
 			nombre:$('#nombre').val(),
 			tipoPago:$('#lista').val(),
@@ -84,13 +84,25 @@ $(document).ready(function() {
 			visa:$('#visa').val(),
 			clave:$('#clave').val()
 		};
-		//window.location.href = "resultado.html";
 		recuperar();
 		return false;
 	});
 
 	function recuperar () {
-		$('#resp').html("<h1>Nombre: "+datos.nombre+"</h1><br/><h3>Tipo de pago: "+datos.tipoPago+
+		$('#resp').html("<h1>Nombre: "+datos.nombre+"</h1><h3>Tipo de pago: "+datos.tipoPago+
 			"<br/>DNI: "+datos.dni+"<br/>Visa: "+datos.visa+"<br/>Clave: "+datos.clave+"</h3>");
-	};
+	};*/
+	$('#formulario').submit(function(event) {
+		$.cookie('nombre', $('#nombre').val());
+		$.cookie('tipoPago',$('#lista').val());
+		$.cookie('dni',$('#dni').val());
+		$.cookie('visa',$('#visa').val());
+		$.cookie('clave',$('#clave').val());
+		window.location.href="resultado.html";
+		return false;
+	});
+	$('#respuesta').click(function(event) {
+		$('#resp').html("<h1>Nombre: "+$.cookie('nombre')+"</h1><h3>Tipo de pago: "+$.cookie('tipoPago')+
+			"<br/>DNI: "+$.cookie('dni')+"<br/>Visa: "+$.cookie('visa')+"<br/>Clave: "+$.cookie('clave')+"</h3>");
+	});
 });
