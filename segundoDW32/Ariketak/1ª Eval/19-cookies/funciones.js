@@ -99,7 +99,7 @@ $(document).ready(function() {
 		$.cookie('dni',$('#dni').val());
 		$.cookie('visa',$('#visa').val());
 		$.cookie('clave',$('#clave').val());*/
-		window.location.href="resultado.html";
+		window.location.href="./resultado.html";
 		return false;
 	});
 	/*$('#respuesta').click(function(event) {
