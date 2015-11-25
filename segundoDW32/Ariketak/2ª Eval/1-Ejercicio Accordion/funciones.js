@@ -16,11 +16,24 @@ $(document).ready(function() {
 					resp += "<div><img src='fotos/"+data[i].foto+".jpg'/></div>";
 				};
 				$('#resp').html(resp);
-				$('#resp').accordion({
-					collapsible:true,
-					active:false
-				});
-			}
+
+				//Si tiene clase de accordion
+				if ($('#resp').hasClass('ui-accordion')) {
+					//destruye el accordion
+                	$('#resp').accordion('destroy');
+                	//Vuelve a crear el accordion
+                	$('#resp').accordion({
+						collapsible:true,
+						active:false
+					});
+				}else{
+					//si no, crea el accordion
+					$('#resp').accordion({
+						collapsible:true,
+						active:false
+					});
+				}//if
+			}//success
 		});//ajax
 	});//submit
 });
