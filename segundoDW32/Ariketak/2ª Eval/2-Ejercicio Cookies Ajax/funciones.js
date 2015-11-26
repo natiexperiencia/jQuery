@@ -40,7 +40,11 @@ $(document).ready(function() {
 
 	$('#form').submit(function(event) {
 		event.preventDefault();
-		var cookie = $.cookie('divisa',$('#moneda').val());
-		alert(cookie);
+		var valor = $('#moneda').val();
+		if (valor != null) {
+			$.cookie('divisa',valor);
+		};
+		
+		alert($.cookie('divisa'));
 	});
 });
