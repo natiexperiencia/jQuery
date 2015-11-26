@@ -6,6 +6,7 @@
 	<script type="text/javascript" src="../../lib/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="../../lib/jquery.tablesorter.min.js"></script>
 	<script type="text/javascript" src="../../lib/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../lib/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="funciones.js"></script>
 	<style type="text/css">
 	table{
@@ -23,9 +24,17 @@
 	body{
 		text-align: center;
 	}
+	#decimalesD,#decimalesE,#decimalesL{
+		width: 45px;
+	}
+	fieldset{
+		width: 80%;
+		margin: auto;
+	}
 	</style>
 </head>
 <body>
+	<h1>Artículos</h1>
 	<table id="tabla" class="tablesorter">
 	</table>
 	<br/>
@@ -39,5 +48,31 @@
 		</select>
 		<input type="submit" value="Cambiar">
 	</form>
+	<br/>
+	<fieldset>
+		<form id="formAdd">
+			<h3>Añadir artículos</h3>
+			<label for="decripcion">Descripcion: </label>
+			<input type="text" name="descripcion" id="descripcion"/>
+			<br/>
+			<label id="precioDolar" for="precio">Precio Dolar: </label>
+			<input type="number" name="precioDolar" id="precioDolar" />
+			,
+			<input id="decimalesD" type="number" name="precioDolarD" id="precioDolarD" />$
+			<br/>
+			<label id="precioEuro" for="precio">Precio Euro:  </label>
+			<input type="number" name="precioEuro" id="precioEuro" />
+			,
+			<input id="decimalesE" type="number" name="precioEuroD" id="precioEuroD" />€
+			<br/>
+			<label id="precioLibra" for="precio">Precio Libra: </label>
+			<input type="number" name="precioLibra" id="precioLibra" />
+			,
+			<input id="decimalesL" type="number" name="precioLibraD" id="precioLibraD" />&#163;
+			<br/><br/>
+			<input type="submit" value="Añadir" />
+			<br/><br/>
+		</form>
+	</fieldset>
 </body>
 </html>
