@@ -5,6 +5,7 @@
 	<meta charset="UTF-8" />
 	<script type="text/javascript" src="../../lib/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="../../lib/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="../../lib/jquery.cookie.js"></script>
 	<script type="text/javascript" src="funciones.js"></script>
 	<style type="text/css">
 	table{
@@ -16,13 +17,27 @@
 		background-color: black;
 		color: white;
 	}
+	td{
+		border:1px solid black;
+	}
+	body{
+		text-align: center;
+	}
 	</style>
 </head>
 <body>
-	<div id="tabla">
-	</div>
+	<table id="tabla" class="tablesorter">
+	</table>
+	<br/>
 	<form id="form">
-		<input type="submit" value="mostrar">
+		<label for="moneda">Elija moneda: </label>
+		<select id="moneda" name="moneda">
+			<option disabled="disabled" selected>Selecciona una</option>
+			<option value="dolar">Dolar</option>
+			<option value="euro">Euro</option>
+			<option value="libra">Libra</option>
+		</select>
+		<input type="submit" value="Cambiar">
 	</form>
 </body>
 </html>
