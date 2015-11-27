@@ -42,33 +42,32 @@ $(document).ready(function() {
 		precioLibra:{required:" Precio obligatorio",digits:" Unicamente digitos",maxlength:" Máximo 6 dígitos"},
 		precioLibraD:{required:" Decimales requeridos", digits:" Unicamente digitos", maxlength:" Máximo 2 decimales"}
 	}
+
+	//si la validacion es correcta, recoge los datos y los envia a insertarDatos.php
 	$('#formAdd').validate({
 		rules:reglas,
-		messages:mensajes
-	});
-
-	//Al ejecutar el formulario añadir el producto en la bd
-	$('#formAdd').submit(function(event) {
-		event.preventDefault();
-		var formData = $(this).serializeArray();
-		$.ajax({
-			url: 'insertarDatos.php',
-			type: 'post',
-			dataType: 'html',
-			data: formData,
-			success: function (data) {
-				if (data == "ok") {
-					alert("Datos isertados correctamente");
-				}else{
-					alert("Algo ha fallado");
+		messages:mensajes,
+		submitHandler:function (form) {
+			var formData = $('#formAdd').serializeArray();
+			console.log(formData);
+			$.ajax({
+				url: 'insertarDatos.php',
+				type: 'post',
+				dataType: 'html',
+				data: formData,
+				success: function (data) {
+					if (data == "ok") {
+						alert("Datos isertados correctamente");
+					}else{
+						alert("Algo ha fallado");
+					}
+					recuperarDatos();
 				}
-				recuperarDatos();
-			}
-		});
+			});
+		}
 	});
 	
 	
-
 	function recuperarDatos () {
 		$.ajax({
 		url: 'datos.php',
