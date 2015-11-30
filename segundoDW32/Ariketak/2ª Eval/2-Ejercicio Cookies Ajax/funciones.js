@@ -2,6 +2,16 @@ $(document).ready(function() {
 	//definir variable moneda
 	var moneda = "";
 
+	dialog = $( "#dialog-message" ).dialog({
+      modal: true,
+      autoOpen: false,
+      buttons: {
+        Ok: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+
 	//si la cookie no esta definida dar valor dolar a moneda
 	if ($.cookie('divisa') == undefined) {
 		moneda = "dolar";
@@ -57,7 +67,7 @@ $(document).ready(function() {
 				data: formData,
 				success: function (data) {
 					if (data == "ok") {
-						alert("Datos isertados correctamente");
+						dialog.dialog( "open" );
 					}else{
 						alert("Algo ha fallado");
 					}

@@ -3,7 +3,9 @@
 <head>
 	<title>Precios</title>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../../lib/jquery-ui.min.css" />
 	<script type="text/javascript" src="../../lib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../../lib/jquery.tablesorter.min.js"></script>
 	<script type="text/javascript" src="../../lib/jquery.cookie.js"></script>
 	<script type="text/javascript" src="../../lib/jquery.validate.min.js"></script>
@@ -31,9 +33,20 @@
 		width: 80%;
 		margin: auto;
 	}
+	.ui-dialog-titlebar{
+		background-color: black;
+	}
 	</style>
 </head>
 <body>
+<!--Ventana modal -->
+	<div id="dialog-message" title="Inserción correcta">
+  		<p>
+    		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    		Datos de artículo insertados correctamente
+  		</p>
+  	</div>
+<!--Fin moddal-->
 	<h1>Artículos</h1>
 	<table id="tabla" class="tablesorter">
 	</table>
