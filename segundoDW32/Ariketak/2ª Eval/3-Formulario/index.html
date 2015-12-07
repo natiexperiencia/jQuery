@@ -2,12 +2,41 @@
 <html>
 <head>
 	<title>Formulario</title>
+	<meta charset="UTF-8">
 	<script type="text/javascript" src="../../lib/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="../../lib/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../../lib/jquery.cookie.js"></script>
 	<script type="text/javascript" src="funciones.js"></script>
+	<style type="text/css">
+		.invalid{
+			background-color: red;
+			border:2px solid black;
+		}
+		label.invalid{
+			background-color: white;
+			border:none;
+		}
+		input, select{
+			margin-top: 10px;
+		}
+		.etqIntentos{
+			float:left;
+			margin-right: 10px;
+		}
+		.etqErrores{
+			clear: left;
+			float: left;
+			margin-right: 10px;
+		}
+		fieldset{
+			clear: left;
+		}
+	</style>
 </head>
 <body>
-<h1>Formulario Datos</h1>Intentos: <div id="intentos"></div>
+<h1>Formulario Datos</h1>
+<label class="etqIntentos">Intentos: </label><div id="intentos"></div>
+<label class="etqErrores">Errores: </label><div id="errores"></div>
 <fieldset>
 <form id="form">
 	<label for="nombre">Nombre: </label>
@@ -18,6 +47,30 @@
 	<br/>
 	<label for="edad">Edad: </label>
 	<input type="number" id="edad" name="edad" />
+	<br/>
+	<label for="dni">DNI: </label>
+	<input type="text" id="dni" name="dni" />
+	<br/>
+	<label for="email">E-Mail: </label>
+	<input type="text" id="email" name="email" />
+	<br/>
+	<label for="provincias">Provincia: </label>
+	<select id="provincias" name="provincias">
+		<option selected="selected" disabled>Selecciona 1</option>
+		<option value="gipuzkoa">Gipuzkoa</option>
+		<option value="bizkaia">Bizkaia</option>
+		<option value="araba">Araba</option>
+		<option value="nafarroa">Nafarroa</option>
+	</select>
+	<br/>
+	<label for="fecha">Fecha: </label>
+	<input type="date" id="fecha" name="fecha" />
+	<br/>
+	<label for="telefono">Teléfono: </label>
+	<input type="text" id="telefono" name="telefono" />
+	<br/>
+	<label for="hora">Hora: </label>
+	<input type="text" id="hora" name="hora" />
 	<br/>
 	<input type="submit" value="Enviar" />
 </form>
