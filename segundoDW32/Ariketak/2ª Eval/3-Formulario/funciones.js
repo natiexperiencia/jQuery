@@ -108,7 +108,7 @@ $(document).ready(function() {
 							$('input').val("");
 							$('select').val("");
 						}else{
-							alert("Algo no ha ido bien");
+							alert(data);
 						}
 					}
 				})

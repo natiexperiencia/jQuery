@@ -12,12 +12,12 @@ $provincia = $_POST['provincias'];
 $fecha = $_POST['fecha'];
 $telefono = $_POST['telefono'];
 $hora = $_POST['hora'];
-
+//echo $nombre."<br/>".$apellido."<br/>".$edad."<br/>".$edadInt."<br/>".$dni."<br/>".$email."<br/>".$provincia."<br/>".$fecha."<br/>".$telefono."<br/>".$hora;
 $stmt = $pdo->prepare("INSERT INTO personas(nombre,apellido,edad,dni,email,provincia,fecha,telefono,hora) 
 	VALUES ('$nombre','$apellido',$edadInt,'$dni','$email','$provincia',STR_TO_DATE( '$fecha', '%d-%m-%Y' ),'$telefono','$hora'");
 if ($stmt->execute()) {
 	echo "ok";
 }else {
-	echo "\nPDO::errorInfo():\n"; 
+	print_r($dbh->errorInfo());
 }
 ?>
