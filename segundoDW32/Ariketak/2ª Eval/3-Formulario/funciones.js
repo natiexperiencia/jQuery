@@ -89,7 +89,7 @@ $(document).ready(function() {
 			$.cookie('intentos',++intentos);
 			$('#intentos').html($.cookie('intentos'));
 			$('#errores').html(validator.numberOfInvalids());
-		},
+		},//InvalidHandler
 		//Si la validación es correcta, sumamos 1 a los intentos y los pintamos y
 		// mandamos los datos del formulario para insertar
 		submitHandler:function (form) {
@@ -106,19 +106,20 @@ $(document).ready(function() {
 						if (data == "ok") {
 							alert("Datos insertados correctamente");
 							$('input').val("");
+							$('#submit').val("Enviar");
 							$('select').val("");
 						}else{
 							alert(data);
 						}
-					}
-				})
+					}//Success
+				})//Ajax
 				.fail(function() {
 					console.log("error");
-				});
+				});//Fail
 				
 			}else{
 				return false;
 			}
-		},
-	});
-});	
+		},//SubmitHandler
+	});//Validate
+});	//Ready
