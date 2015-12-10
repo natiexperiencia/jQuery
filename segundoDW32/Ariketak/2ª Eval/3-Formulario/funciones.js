@@ -88,7 +88,13 @@ $(document).ready(function() {
 		invalidHandler:function (event,validator) {
 			$.cookie('intentos',++intentos);
 			$('#intentos').html($.cookie('intentos'));
-			$('#errores').html(validator.numberOfInvalids());
+			var fallos = validator.numberOfInvalids();
+			$('#errores').html(fallos);
+			if (fallos) {
+				validator.showErrors();
+				var fallosArray = $('.invalid');
+				$('#'+fallosArray[0].id).focus();
+			};
 		},//InvalidHandler
 		//Si la validación es correcta, sumamos 1 a los intentos y los pintamos y
 		// mandamos los datos del formulario para insertar
