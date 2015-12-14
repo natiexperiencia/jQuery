@@ -101,6 +101,7 @@ $(document).ready(function() {
 		submitHandler:function (form) {
 			$.cookie('intentos',++intentos);
 			$('#intentos').html($.cookie('intentos'));
+			$('#errores').html("");
 			if (confirm("Seguro que quieres enviar el formulario???")) {
 				var formData = $('#form').serializeArray();
 				$.ajax({
