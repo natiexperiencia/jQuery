@@ -11,6 +11,8 @@ $(document).ready(function() {
 		buscarAlumnos();
 	});
 
+	
+
 
 	//Funcion con ajax para recoger datos alumnos
 	function buscarAlumnos () {
@@ -23,7 +25,10 @@ $(document).ready(function() {
 			success:function (data) {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
+					resp += "<table class='table'><tr><td>";
 					resp += "<h3>"+data[i].id+" "+data[i].nombre+"</h3>";
+					resp += "<img src='"+data[i].imagen+"' onclick='marcar()'>";
+					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);
 			}
@@ -39,4 +44,10 @@ $(document).ready(function() {
 		});//always
 	}//function buscarAlumnos
 
+	
+
 });//ready
+
+function marcar () {
+		alert("aSome");
+	}
