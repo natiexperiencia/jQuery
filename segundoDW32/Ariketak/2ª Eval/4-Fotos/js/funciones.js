@@ -11,6 +11,25 @@ $(document).ready(function() {
 		buscarAlumnos();
 	});
 
+	//click btn nuevo muestra formulario
+	$('#btnNuevo').click(function(event) {
+		event.preventDefault();
+		$('#resultado').html("");
+		var formulario = "<form class='form-group' id='formNew'>";
+    		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control'>";
+    		formulario += "Imagen: <input type='text' id='imagen' name='imagen' class='form-control'>";
+    		formulario += "<br/><button id='btnInsertar' class='btn btn-primary'>Insertar</button>";
+    		formulario += "&nbsp;<button id='btnVolver' class='btn btn-primary'>Volver</button>";
+    		formulario += "</form>";
+    		$('#resultado').html(formulario);
+	});//click nuevo
+
+	//click insertar alumno nuevo
+	$('#resultado').on("click","#btnInsertar",function(event) {
+		event.preventDefault();
+		insertarAlumno($('#resultado #nombre').val(), $('#resultado #imagen').val());
+	});
+
 	//Crear formulario para modificar o borrar alumno al clicar en la celda
 	$('#resultado').on("click",".celda",function () {
 		var datos = $(this).contents();
@@ -26,21 +45,23 @@ $(document).ready(function() {
     		$('#resultado').html(formulario);
 		})
 		.fail(function() {
-    		// an error occurred
+    		console.log("error crear formulario");
 		});
 	});//Formulario modificar y borrar
 	
 	//Al clicar en borrar el alumno
-	$('#resultado').on("click","#btnBorrar",function() {
-		if (confirm("Estas seguro de borrar al alumno "+$('#resultado #nombre').val())+"?") {
+	$('#resultado').on("click","#btnBorrar",function(event) {
+		event.preventDefault();
+		if(confirm("Estas seguro de borrar al alumno?")) {
 			$.ajax({
 				url: 'php/borrarAlumno.php',
 				type: 'post',
 				dataType: 'html',
-				data: {'id':($('#resultado #id').val())},
+				data: {'id':$('#resultado #id').val()},
 				success:function(data){
 					if (data == "ok") {
 						alert("Alumno borrado correctamente");
+						buscarAlumnos();
 					}else{
 						alert("Algo no ha ido bien");
 					}//if else
@@ -56,7 +77,8 @@ $(document).ready(function() {
 	});//click borrar formulario alumno
 
 	//Al clicar en modificar el Alumno
-	$('#resultado').on("click","#btnModificar",function() {
+	$('#resultado').on("click","#btnModificar",function(event) {
+		event.preventDefault();
 	    if(confirm("Estas seguro de modificar el alumno??")){
 	    	var datos = {'id':$('#resultado #id').val(), 'nombre':$('#resultado #nombre').val(), 'imagen':$('#resultado #imagen').val()};
 	    	console.log(datos);
@@ -67,7 +89,8 @@ $(document).ready(function() {
 	    		data: datos,
 	    		success:function(data){
 					if (data == "ok") {
-						alert("Alumno borrado correctamente");
+						alert("Alumno modificado correctamente");
+						buscarAlumnos();
 					}else{
 						alert("Algo no ha ido bien");
 					}//if else
@@ -81,8 +104,45 @@ $(document).ready(function() {
 			})//fail
 	    }
 	});//click modificar formulario alumno
+
+	//funcion insertar alumno nuevo
+	function insertarAlumno (nombre,imagen) {
+		if (nombre == "" || imagen == "") {
+			alert("Faltan datos");
+			var inputs = $('#resultado input');
+			var primero = "";
+			for (var i = 0; i < inputs.length; i++) {
+				if (inputs[i].value == "" && primero == "") {
+					primero = inputs[i];
+				};
+			};
+			primero.focus();
+		}else{
+			var datos = {'nombre':nombre,'imagen':imagen};
+			$.ajax({
+				url: 'php/insertarAlumno.php',
+				type: 'post',
+				dataType: 'html',
+				data: datos,
+				success:function (data) {
+						if (data == "ok") {
+							alert("Alumno añadido correctamente");
+							buscarAlumnos();
+						}else{
+							alert("Algo no ha ido bien");
+						}//if else
+				}//success
+			})
+			.done(function() {
+				console.log("success insertar");
+			})
+			.fail(function() {
+				console.log("error insertar");
+			})
+		}	
+	};//funcion insertar alumno nuevo
 	
-	//Funcion con ajax para recoger datos alumnos
+	//Funcion con ajax para recoger datos alumnos y crear tabla
 	function buscarAlumnos () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
@@ -109,7 +169,7 @@ $(document).ready(function() {
 		})//fail
 	}//function buscarAlumnos
 
-
+	//funcion para buscar alumnos por id
 	function buscarAlumnoPorId (idAlumno) {
 		var dato = { 'id':idAlumno };
 		return	$.ajax({
